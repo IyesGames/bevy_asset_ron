@@ -52,3 +52,11 @@ Now you can just create files like `assets/items/big_gun.item`:
   min_level: 4,
 )
 ```
+
+---
+
+See [`examples/load_rons.rs`](./examples/load_rons.rs) for a more elaborate example!
+
+```
+$ cargo run --example load_rons
+```
