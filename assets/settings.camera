@@ -1,0 +1,4 @@
+(
+  fov_degrees: 90.0,
+  translation: (3.0, 3.0, 3.0),
+)

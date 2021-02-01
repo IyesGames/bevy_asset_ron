@@ -1,0 +1,21 @@
+[package]
+name = "bevy_asset_ron"
+version = "0.1.0"
+authors = ["Jasen Borisov <jamadazi@protonmail.ch>"]
+edition = "2018"
+description = "Custom RON assets for Bevy"
+repository = "https://github.com/jamadazi/bevy_asset_ron"
+license = "MIT"
+keywords = ["bevy", "assets", "ron", "game", "engine"]
+categories = ["game-engines"]
+readme = "README.md"
+documentation = "https://docs.rs/bevy_asset_ron/latest/bevy_asset_ron/"
+exclude = ["assets/**/*"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1"
+bevy = "0.4"
+ron = "0.6.4"
+serde = "1"
