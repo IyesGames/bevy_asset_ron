@@ -16,6 +16,6 @@ exclude = ["assets/**/*"]
 
 [dependencies]
 anyhow = "1"
-bevy = "0.4"
+bevy = { version = "0.4", default-features = false }
 ron = "0.6.4"
 serde = "1"
