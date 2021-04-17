@@ -29,7 +29,7 @@ struct CubesAsset {
 
 fn main() {
     App::build()
-        .add_resource(Msaa { samples: 4 })
+        .insert_resource(Msaa { samples: 4 })
         .add_plugins(DefaultPlugins)
         // load camera settings from "*.camera" files
         .add_plugin(RonAssetPlugin::<CameraSettingsAsset>::new(&["camera"]))
@@ -53,7 +53,7 @@ struct ObjectSettings {
 
 /// Setup System
 fn setup(
-    commands: &mut Commands,
+    mut commands: Commands,
     server: Res<AssetServer>)
 {
     // load the camera settings
@@ -61,40 +61,40 @@ fn setup(
 
     // spawn placeholder entity for camera
     // it will be initialized when the settings finish loading
-    commands.spawn((CameraSettings { handle: ass_cam },));
+    commands.spawn_bundle((CameraSettings { handle: ass_cam },));
 
     // load configs for objects
     let ass_objs = server.load_folder("objects").unwrap();
     for ass_obj in ass_objs {
-        commands.spawn((ObjectSettings { handle: ass_obj },));
+        commands.spawn_bundle((ObjectSettings { handle: ass_obj },));
     }
 }
 
 /// Initialize camera when the settings are loaded
 fn init_camera(
-    commands: &mut Commands,
+    mut commands: Commands,
     assets: Res<Assets<CameraSettingsAsset>>,
     q: Query<(Entity, &CameraSettings)>,
 ) {
     for (e, cs) in q.iter() {
         if let Some(s) = assets.get(&cs.handle) {
             // despawn placeholder
-            commands.despawn(e);
+            commands.entity(e).despawn();
 
             // spawn actual camera
-            let mut camera = Camera3dBundle::default();
+            let mut camera = PerspectiveCameraBundle::default();
             camera.transform.translation = s.translation.into();
-            camera.transform.look_at(Vec3::zero(), Vec3::unit_y());
+            camera.transform.look_at(Vec3::ZERO, Vec3::Y);
             camera.perspective_projection.fov = s.fov_degrees * std::f32::consts::PI / 180.0;
             
-            commands.spawn(camera);
+            commands.spawn_bundle(camera);
         }
     }
 }
 
 /// Spawn cubes when cube description assets are loaded
 fn spawn_cubes(
-    commands: &mut Commands,
+    mut commands: Commands,
     assets: Res<Assets<CubesAsset>>,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
@@ -103,11 +103,11 @@ fn spawn_cubes(
     for (e, os) in q.iter() {
         if let Some(s) = assets.get(&os.handle) {
             // despawn placeholder
-            commands.despawn(e);
+            commands.entity(e).despawn();
 
             // spawn cubes
             for &cube in &s.positions {
-                commands.spawn(PbrBundle {
+                commands.spawn_bundle(PbrBundle {
                     mesh: meshes.add(Mesh::from(shape::Cube { size: s.size })),
                     material: materials.add(Color::from(s.color).into()),
                     transform: Transform::from_translation(cube.into()),
