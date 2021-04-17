@@ -10,16 +10,14 @@ use bevy::prelude::*;
 use bevy::reflect::TypeUuid;
 use bevy_asset_ron::*;
 
-#[derive(serde::Deserialize)]
-#[derive(TypeUuid)]
+#[derive(serde::Deserialize, TypeUuid)]
 #[uuid = "b7f64775-6e72-4080-9ced-167607f1f0b2"]
 struct CameraSettingsAsset {
     translation: [f32; 3],
     fov_degrees: f32,
 }
 
-#[derive(serde::Deserialize, serde::Serialize)]
-#[derive(TypeUuid)]
+#[derive(serde::Deserialize, serde::Serialize, TypeUuid)]
 #[uuid = "39ae6c9e-9320-4575-ad28-4cc3f10dd0e8"]
 struct CubesAsset {
     color: [f32; 4],
@@ -52,10 +50,7 @@ struct ObjectSettings {
 }
 
 /// Setup System
-fn setup(
-    mut commands: Commands,
-    server: Res<AssetServer>)
-{
+fn setup(mut commands: Commands, server: Res<AssetServer>) {
     // load the camera settings
     let ass_cam = server.load("settings.camera");
 
@@ -86,7 +81,7 @@ fn init_camera(
             camera.transform.translation = s.translation.into();
             camera.transform.look_at(Vec3::ZERO, Vec3::Y);
             camera.perspective_projection.fov = s.fov_degrees * std::f32::consts::PI / 180.0;
-            
+
             commands.spawn_bundle(camera);
         }
     }
