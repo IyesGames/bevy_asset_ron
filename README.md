@@ -60,3 +60,11 @@ See [`examples/load_rons.rs`](./examples/load_rons.rs) for a more elaborate exam
 ```
 $ cargo run --example load_rons
 ```
+
+## Compatible Bevy versions
+
+Compatibility of published `bevy_asset_ron` versions:
+| `bevy_asset_ron` | `bevy` |
+| :-- | :-- |
+| `0.2.0` | `0.5.0` |
+| `0.1.0` | `0.4.0` |
