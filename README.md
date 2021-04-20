@@ -29,7 +29,7 @@ fn main() {
         // our asset
         .add_plugin(
             // load `*.item` files
-            RonAssetPlugin::<GameItemDescriptionAsset>::new("item")
+            RonAssetPlugin::<GameItemDescriptionAsset>::new(&["item"])
         )
         .add_startup_system(setup.system())
         .run();
