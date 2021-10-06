@@ -16,9 +16,12 @@ exclude = ["assets/**/*"]
 
 [dependencies]
 anyhow = "1"
-bevy = { git = "https://github.com/bevyengine/bevy", branch = "main", default-features = false }
+bevy = { version = "0.5", default-features = false }
 ron = "0.6.4"
 serde = "1"
 
 [dev-dependencies]
-bevy = { git = "https://github.com/bevyengine/bevy", branch = "main", default-features = true }
+bevy = { version = "0.5", default-features = true }
+
+[patch.crates-io]
+bevy =  { git = "https://github.com/bevyengine/bevy", branch = "main" }
