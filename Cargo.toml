@@ -22,3 +22,6 @@ serde = "1"
 
 [dev-dependencies]
 bevy = { version = "0.5", default-features = true }
+
+[patch.crates-io]
+bevy =  { git = "https://github.com/bevyengine/bevy", branch = "main" }

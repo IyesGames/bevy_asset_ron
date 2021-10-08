@@ -26,7 +26,7 @@ struct CubesAsset {
 }
 
 fn main() {
-    App::build()
+    App::new()
         .insert_resource(Msaa { samples: 4 })
         .add_plugins(DefaultPlugins)
         // load camera settings from "*.camera" files
@@ -40,11 +40,13 @@ fn main() {
 }
 
 /// Component for our camera entities
+#[derive(Component)]
 struct CameraSettings {
     handle: Handle<CameraSettingsAsset>,
 }
 
 /// Component for our object setting entities
+#[derive(Component)]
 struct ObjectSettings {
     handle: HandleUntyped,
 }
