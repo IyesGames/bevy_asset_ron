@@ -1,6 +1,6 @@
 [package]
 name = "bevy_asset_ron"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Jasen Borisov <jamadazi@protonmail.ch>"]
 edition = "2021"
 description = "Custom RON assets for Bevy"
