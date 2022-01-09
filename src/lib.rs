@@ -46,7 +46,7 @@ impl<T> Plugin for RonAssetPlugin<T>
 where
     for<'de> T: TypeUuid + Deserialize<'de> + Send + Sync + 'static,
 {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         let loader = RonLoader::<T> {
             extensions: self.extensions.clone(),
             _t: PhantomData,
