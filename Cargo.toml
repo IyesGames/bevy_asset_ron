@@ -1,10 +1,9 @@
 [package]
 name = "bevy_asset_ron"
 version = "0.2.0"
-authors = ["Jasen Borisov <jamadazi@protonmail.ch>"]
 edition = "2018"
 description = "Custom RON assets for Bevy"
-repository = "https://github.com/jamadazi/bevy_asset_ron"
+repository = "https://github.com/inodentry/bevy_asset_ron"
 license = "MIT"
 keywords = ["bevy", "assets", "ron", "game", "engine"]
 categories = ["game-engines"]
