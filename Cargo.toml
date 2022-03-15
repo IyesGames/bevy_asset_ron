@@ -14,13 +14,13 @@ exclude = ["assets/**/*"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.52"
-bevy = { version = "0.6.0", default-features = false }
-ron = "0.7.0"
-serde = "1.0.133"
+anyhow = "1"
+bevy = { version = "0.6", default-features = false }
+ron = "0.7"
+serde = "1"
 
 [dev-dependencies]
-bevy = { version = "0.6.0", default-features = true }
+bevy = { version = "0.6", default-features = true }
 
 [patch.crates-io]
 bevy =  { git = "https://github.com/bevyengine/bevy", branch = "main" }
