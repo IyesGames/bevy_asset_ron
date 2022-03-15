@@ -33,9 +33,9 @@ fn main() {
         .add_plugin(RonAssetPlugin::<CameraSettingsAsset>::new(&["camera"]))
         // load cubes to spawn from "*.cubes" files
         .add_plugin(RonAssetPlugin::<CubesAsset>::new(&["cubes"]))
-        .add_startup_system(setup.system())
-        .add_system(init_camera.system())
-        .add_system(spawn_cubes.system())
+        .add_startup_system(setup)
+        .add_system(init_camera)
+        .add_system(spawn_cubes)
         .run();
 }
 

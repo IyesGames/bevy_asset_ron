@@ -23,7 +23,7 @@ struct GameItemDescriptionAsset {
 }
 
 fn main() {
-    App::build()
+    App::new()
         // bevy
         .add_plugins(DefaultPlugins)
         // our asset
@@ -31,7 +31,7 @@ fn main() {
             // load `*.item` files
             RonAssetPlugin::<GameItemDescriptionAsset>::new(&["item"])
         )
-        .add_startup_system(setup.system())
+        .add_startup_system(setup)
         .run();
 }
 
