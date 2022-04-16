@@ -64,8 +64,10 @@ $ cargo run --example load_rons
 ## Compatible Bevy versions
 
 Compatibility of published `bevy_asset_ron` versions:
-| `bevy_asset_ron` | `bevy` |
-| :-- | :-- |
-| `0.3.0` | `0.6` |
-| `0.2.0` | `0.5` |
-| `0.1.0` | `0.4` |
+
+| `bevy` | `bevy_asset_ron` |
+|--------|------------------|
+| `0.7`  | `0.4`            |
+| `0.6`  | `0.3`            |
+| `0.5`  | `0.2`            |
+| `0.4`  | `0.1`            |
