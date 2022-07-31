@@ -1,3 +1,8 @@
+# OBSOLETE!
+
+This project is no longer maintained. It has been superseded by
+[`bevy_common_assets`](https://github.com/NiklasEi/bevy_common_assets).
+
 # Custom RON Assets for Bevy
 
 This crate allows you to easily register arbitrary custom data to be loaded by
